@@ -1,57 +1,46 @@
 var home = document.getElementById('Grave')
 
-var itemX;
-var itemY;
-var width = 80
-var height = 80
-var batX = Number(document.getAttribute("x"));
-var batY = Number(document.getAttribute("y"));
+
 document.addEventListener( "keydown", function (e) {
 //movemont left-right
+var itemX = Number(document.getElementById("item").getAttribute("x"));
+var itemY = Number(document.getElementById("item").getAttribute("y"));
+var width = 20;
+var height = 20;
 var Valuex = Number(document.getElementById("bat").getAttribute("x"));
+var Valuey = Number(document.getElementById("bat").getAttribute("y"));
 var bat = document.getElementById("bat");
 var item = document.getElementById("item");
 
+//var batX = Number(document.getElementById("bat").getAttribute("x"));
+//var batY = Number(document.getElementById("bat").getAttribute("y"));
 
 
-itemX = Number(document.getAttribute("x"));
-itemY = Number(document.getAttribute("y"));
- if (e.keyCode == 37) {
+
+if (e.keyCode == 37) {
     document.getElementById("bat").setAttribute("x",Valuex-10)
-  Valuex = Valuex-10
-  if(batX > itemX && batX < itemX + width && batX > itemX && batY < itemY + height ){
-    item.setAttribute("x", 100)
-  soulsCollected = soulsCollected += 1;
-  console.log("work please!!!")
-  }
+
  }
  else if (e.keyCode == 39){
    document.getElementById("bat").setAttribute("x",Valuex+10)
-  Valuex = Valuex+10
-  if(batX > itemX && batX < itemX + width && batX > itemX && batY < itemY + height ){
-    item.setAttribute("x", 100)
-  soulsCollected = soulsCollected += 1;
-  console.log("work please!!!")
-  }
+
  }
 //movement up-down
- var Valuey = Number(document.getElementById("bat").getAttribute("y"));
-  if (e.keyCode == 38) {
+
+   else if (e.keyCode == 38) {
      document.getElementById("bat").setAttribute("y",Valuey-10)
-   Valuey = Valuey-10
-   if(batX > itemX && batX < itemX + width && batX > itemX && batY < itemY + height ){
-     item.setAttribute("x", 100)
-   soulsCollected = soulsCollected += 1;
-   console.log("work please!!!")
-   }
+
   }
   else if (e.keyCode == 40){
-    document.getElementById("bat").setAttribute("y",Valuey+10)
-   Valuey = Valuey+10
-   if(batX > itemX && batX < itemX + width && batX > itemX && batY < itemY + height ){
-     item.setAttribute("x", 100)
-   soulsCollected = soulsCollected += 1;
-   console.log("work please!!!")
-   }
+    document.getElementById("bat").setAttribute("y",Valuey+10);
+
+ }
+
+ // one piece of code to check for overlap
+
+  if(Valuex > itemX && Valuex < itemX + width && Valuey > itemY && Valuey < itemY + height ){
+item.setAttribute("x", 100)
+ var soulsCollected = soulsCollected += 1;
+ console.log("work please!!!")
  }
  })
